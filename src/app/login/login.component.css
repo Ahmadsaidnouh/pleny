@@ -1,0 +1,41 @@
+.login-container {
+    width: 360px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.error-message {
+    color: rgb(151, 46, 46);
+    margin-top: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #41CCCC;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+
+button[disabled] {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
