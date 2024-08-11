@@ -1,1 +1,176 @@
-/* You can add global styles to this file, and also import other style files */
+.main-padding {
+  padding-inline: 60px;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.dvh-100 {
+  height: 100dvb;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.gap-1 {
+  gap: 4px !important;
+}
+
+.gap-2 {
+  gap: 8px !important;
+}
+
+.gap-3 {
+  gap: 16px !important;
+}
+
+.gap-4 {
+  gap: 24px !important;
+}
+
+.gap-5 {
+  gap: 48px !important;
+}
+
+
+
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+input:focus-visible {
+    /* outline-offset: 0 !important;
+    border: none !important; */
+    outline: 0 !important;
+}
+
+
+.text-clip {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.remaining-width {
+  flex-grow: 1;
+  /* parent must take d-flex, align-items-center */
+}
+
+.remaining-height {
+  flex-grow: 1;
+  /* parent must take d-flex, flex-column, w-100 */
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+    background-color: #F0F4F7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.cursor-pointer:not([disabled]) {
+    cursor: pointer !important;
+}
+
+/* 
+  First give to its parent "message-parent" class.
+  Second give it "message-tip" class ==> <div class="message-tip">تاريخ التحديث</div>
+  Third set the top or bottom values as required in its component's CSS ==> .message-tip { top: -80%; }
+*/
+.message-tip {
+  background-color: #376832;
+  padding: 3px 5px;
+  border-radius: 6px;
+  width: 90px;
+
+  color: #FFF;
+  font-family: "Bigshot One";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+
+  position: absolute;
+  /* top: -160%; */
+  display: none;
+}
+
+.message-tip:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid black;
+  border-color: #376832 #0000 #0000 #0000;
+
+}
+
+.message-parent {
+  position: relative;
+}
+
+.message-parent:hover .message-tip {
+  display: block;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+
+.me-0,.me-1,.me-2,.me-3,.me-4,.me-5,.me-lg-0,.me-lg-1,.me-lg-2,.me-lg-3,.me-lg-4,.me-lg-5,.me-md-0,.me-md-1,.me-md-2,.me-md-3,.me-md-4,.me-md-5,.me-sm-0,.me-sm-1,.me-sm-2,.me-sm-3,.me-sm-4,.me-sm-5,.me-xl-0,.me-xl-1,.me-xl-2,.me-xl-3,.me-xl-4,.me-xl-5,.me-xxl-0,.me-xxl-1,.me-xxl-2,.me-xxl-3,.me-xxl-4,.me-xxl-5,.ms-0,.ms-1,.ms-2,.ms-3,.ms-4,.ms-5,.ms-lg-0,.ms-lg-1,.ms-lg-2,.ms-lg-3,.ms-lg-4,.ms-lg-5,.ms-md-0,.ms-md-1,.ms-md-2,.ms-md-3,.ms-md-4,.ms-md-5,.ms-sm-0,.ms-sm-1,.ms-sm-2,.ms-sm-3,.ms-sm-4,.ms-sm-5,.ms-xl-0,.ms-xl-1,.ms-xl-2,.ms-xl-3,.ms-xl-4,.ms-xl-5,.ms-xxl-0,.ms-xxl-1,.ms-xxl-2,.ms-xxl-3,.ms-xxl-4,.ms-xxl-5{margin-inline:0!important}.pe-0,.pe-1,.pe-2,.pe-3,.pe-4,.pe-5,.pe-lg-0,.pe-lg-1,.pe-lg-2,.pe-lg-3,.pe-lg-4,.pe-lg-5,.pe-md-0,.pe-md-1,.pe-md-2,.pe-md-3,.pe-md-4,.pe-md-5,.pe-sm-0,.pe-sm-1,.pe-sm-2,.pe-sm-3,.pe-sm-4,.pe-sm-5,.pe-xl-0,.pe-xl-1,.pe-xl-2,.pe-xl-3,.pe-xl-4,.pe-xl-5,.pe-xxl-0,.pe-xxl-1,.pe-xxl-2,.pe-xxl-3,.pe-xxl-4,.pe-xxl-5,.ps-0,.ps-1,.ps-2,.ps-3,.ps-4,.ps-5,.ps-lg-0,.ps-lg-1,.ps-lg-2,.ps-lg-3,.ps-lg-4,.ps-lg-5,.ps-md-0,.ps-md-1,.ps-md-2,.ps-md-3,.ps-md-4,.ps-md-5,.ps-sm-0,.ps-sm-1,.ps-sm-2,.ps-sm-3,.ps-sm-4,.ps-sm-5,.ps-xl-0,.ps-xl-1,.ps-xl-2,.ps-xl-3,.ps-xl-4,.ps-xl-5,.ps-xxl-0,.ps-xxl-1,.ps-xxl-2,.ps-xxl-3,.ps-xxl-4,.ps-xxl-5{padding-inline:0!important}.ms-0{margin-inline-start:0!important}.ms-1{margin-inline-start:4px!important}.ms-2{margin-inline-start:8px!important}.ms-3{margin-inline-start:16px!important}.ms-4{margin-inline-start:24px!important}.ms-5{margin-inline-start:48px!important}.me-0{margin-inline-end:0!important}.me-1{margin-inline-end:4px!important}.me-2{margin-inline-end:8px!important}.me-3{margin-inline-end:16px!important}.me-4{margin-inline-end:24px!important}.me-5{margin-inline-end:48px!important}.ps-0{padding-inline-start:0!important}.ps-1{padding-inline-start:4px!important}.ps-2{padding-inline-start:8px!important}.ps-3{padding-inline-start:16px!important}.ps-4{padding-inline-start:24px!important}.ps-5{padding-inline-start:48px!important}.pe-0{padding-inline-end:0!important}.pe-1{padding-inline-end:4px!important}.pe-2{padding-inline-end:8px!important}.pe-3{padding-inline-end:16px!important}.pe-4{padding-inline-end:24px!important}.pe-5{padding-inline-end:48px!important}@media (min-width:1400px){.ms-xxl-0{margin-inline-start:0!important}.ms-xxl-1{margin-inline-start:4px!important}.ms-xxl-2{margin-inline-start:8px!important}.ms-xxl-3{margin-inline-start:16px!important}.ms-xxl-4{margin-inline-start:24px!important}.ms-xxl-5{margin-inline-start:48px!important}.me-xxl-0{margin-inline-end:0!important}.me-xxl-1{margin-inline-end:4px!important}.me-xxl-2{margin-inline-end:8px!important}.me-xxl-3{margin-inline-end:16px!important}.me-xxl-4{margin-inline-end:24px!important}.me-xxl-5{margin-inline-end:48px!important}.ps-xxl-0{padding-inline-start:0!important}.ps-xxl-1{padding-inline-start:4px!important}.ps-xxl-2{padding-inline-start:8px!important}.ps-xxl-3{padding-inline-start:16px!important}.ps-xxl-4{padding-inline-start:24px!important}.ps-xxl-5{padding-inline-start:48px!important}.pe-xxl-0{padding-inline-end:0!important}.pe-xxl-1{padding-inline-end:4px!important}.pe-xxl-2{padding-inline-end:8px!important}.pe-xxl-3{padding-inline-end:16px!important}.pe-xxl-4{padding-inline-end:24px!important}.pe-xxl-5{padding-inline-end:48px!important}}@media (min-width:1200px){.ms-xl-0{margin-inline-start:0!important}.ms-xl-1{margin-inline-start:4px!important}.ms-xl-2{margin-inline-start:8px!important}.ms-xl-3{margin-inline-start:16px!important}.ms-xl-4{margin-inline-start:24px!important}.ms-xl-5{margin-inline-start:48px!important}.me-xl-0{margin-inline-end:0!important}.me-xl-1{margin-inline-end:4px!important}.me-xl-2{margin-inline-end:8px!important}.me-xl-3{margin-inline-end:16px!important}.me-xl-4{margin-inline-end:24px!important}.me-xl-5{margin-inline-end:48px!important}.ps-xl-0{padding-inline-start:0!important}.ps-xl-1{padding-inline-start:4px!important}.ps-xl-2{padding-inline-start:8px!important}.ps-xl-3{padding-inline-start:16px!important}.ps-xl-4{padding-inline-start:24px!important}.ps-xl-5{padding-inline-start:48px!important}.pe-xl-0{padding-inline-end:0!important}.pe-xl-1{padding-inline-end:4px!important}.pe-xl-2{padding-inline-end:8px!important}.pe-xl-3{padding-inline-end:16px!important}.pe-xl-4{padding-inline-end:24px!important}.pe-xl-5{padding-inline-end:48px!important}}@media (min-width:992px){.ms-lg-0{margin-inline-start:0!important}.ms-lg-1{margin-inline-start:4px!important}.ms-lg-2{margin-inline-start:8px!important}.ms-lg-3{margin-inline-start:16px!important}.ms-lg-4{margin-inline-start:24px!important}.ms-lg-5{margin-inline-start:48px!important}.me-lg-0{margin-inline-end:0!important}.me-lg-1{margin-inline-end:4px!important}.me-lg-2{margin-inline-end:8px!important}.me-lg-3{margin-inline-end:16px!important}.me-lg-4{margin-inline-end:24px!important}.me-lg-5{margin-inline-end:48px!important}.ps-lg-0{padding-inline-start:0!important}.ps-lg-1{padding-inline-start:4px!important}.ps-lg-2{padding-inline-start:8px!important}.ps-lg-3{padding-inline-start:16px!important}.ps-lg-4{padding-inline-start:24px!important}.ps-lg-5{padding-inline-start:48px!important}.pe-lg-0{padding-inline-end:0!important}.pe-lg-1{padding-inline-end:4px!important}.pe-lg-2{padding-inline-end:8px!important}.pe-lg-3{padding-inline-end:16px!important}.pe-lg-4{padding-inline-end:24px!important}.pe-lg-5{padding-inline-end:48px!important}}@media (min-width:768px){.ms-md-0{margin-inline-start:0!important}.ms-md-1{margin-inline-start:4px!important}.ms-md-2{margin-inline-start:8px!important}.ms-md-3{margin-inline-start:16px!important}.ms-md-4{margin-inline-start:24px!important}.ms-md-5{margin-inline-start:48px!important}.me-md-0{margin-inline-end:0!important}.me-md-1{margin-inline-end:4px!important}.me-md-2{margin-inline-end:8px!important}.me-md-3{margin-inline-end:16px!important}.me-md-4{margin-inline-end:24px!important}.me-md-5{margin-inline-end:48px!important}.ps-md-0{padding-inline-start:0!important}.ps-md-1{padding-inline-start:4px!important}.ps-md-2{padding-inline-start:8px!important}.ps-md-3{padding-inline-start:16px!important}.ps-md-4{padding-inline-start:24px!important}.ps-md-5{padding-inline-start:48px!important}.pe-md-0{padding-inline-end:0!important}.pe-md-1{padding-inline-end:4px!important}.pe-md-2{padding-inline-end:8px!important}.pe-md-3{padding-inline-end:16px!important}.pe-md-4{padding-inline-end:24px!important}.pe-md-5{padding-inline-end:48px!important}}@media (min-width:576px){.ms-sm-0{margin-inline-start:0!important}.ms-sm-1{margin-inline-start:4px!important}.ms-sm-2{margin-inline-start:8px!important}.ms-sm-3{margin-inline-start:16px!important}.ms-sm-4{margin-inline-start:24px!important}.ms-sm-5{margin-inline-start:48px!important}.me-sm-0{margin-inline-end:0!important}.me-sm-1{margin-inline-end:4px!important}.me-sm-2{margin-inline-end:8px!important}.me-sm-3{margin-inline-end:16px!important}.me-sm-4{margin-inline-end:24px!important}.me-sm-5{margin-inline-end:48px!important}.ps-sm-0{padding-inline-start:0!important}.ps-sm-1{padding-inline-start:4px!important}.ps-sm-2{padding-inline-start:8px!important}.ps-sm-3{padding-inline-start:16px!important}.ps-sm-4{padding-inline-start:24px!important}.ps-sm-5{padding-inline-start:48px!important}.pe-sm-0{padding-inline-end:0!important}.pe-sm-1{padding-inline-end:4px!important}.pe-sm-2{padding-inline-end:8px!important}.pe-sm-3{padding-inline-end:16px!important}.pe-sm-4{padding-inline-end:24px!important}.pe-sm-5{padding-inline-end:48px!important}}
