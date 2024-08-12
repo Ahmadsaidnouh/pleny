@@ -1,0 +1,47 @@
+.categories-container {
+    border: 0.5px solid rgba(66, 66, 66, 0.5);
+    border-radius: 8px;
+    padding: 15px 50px 15px 10px;
+}
+
+/* Hide the default radio button */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #00cfcf;
+    /* Border color */
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    /* Background color */
+}
+
+/* Create the inner dot */
+input[type="radio"]::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #00cfcf;
+    /* Dot color */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-59%, -49%) scale(0);;
+    transition: transform 0.2s ease;
+}
+
+/* Scale the dot on selection */
+input[type="radio"]:checked::before {
+    transform: translate(-59%, -49%) scale(1);
+}
+
+/* Optional: Add hover effect */
+input[type="radio"]:hover {
+    border-color: #00cfcf;
+}

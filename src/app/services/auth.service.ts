@@ -35,4 +35,13 @@ export class AuthService {
     console.log("user = "+ user);
     this.userData.next(user);
   }
+
+  logOut() {
+    // let currentComponentName = this._Router.url.replace("/","")
+    // console.log("link = " + currentComponentName);
+    localStorage.removeItem("userData")
+    this.userData.next(null);
+    this._Router.navigate(["login"]);
+    // if (currentComponentName == "settings" ....)
+  }
 }

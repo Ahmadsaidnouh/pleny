@@ -9,6 +9,7 @@
                 <span class="cursor-pointer">1223</span>
             </div>
         </div>
-        <span class="cursor-pointer">Log in</span>
+        <span *ngIf="!isLoggedIn" class="cursor-pointer">Log in</span>
+        <span *ngIf="isLoggedIn" (click)="logOut()" class="cursor-pointer">Log out</span>
     </div>
 </div>
