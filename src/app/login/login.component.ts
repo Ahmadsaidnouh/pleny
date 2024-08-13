@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  wrongLogin = false;
   loginForm: FormGroup = this.fb.group({});  // Initialize with an empty FormGroup
 
   constructor(private fb: FormBuilder, private _Router: Router, private authService: AuthService) { }
@@ -22,6 +23,8 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
+      this.wrongLogin = false;
+
       let loginBtn = document.querySelector(".login-btn") as HTMLButtonElement;
       loginBtn.innerHTML = "Signing in...";
       loginBtn.disabled = true;
@@ -40,6 +43,7 @@ export class LoginComponent {
         loginBtn.disabled = false;
       }, error => {
         console.log('Login failed', error);
+        this.wrongLogin = true;
         // Handle login failure
         loginBtn.innerHTML = "Sign in";
         loginBtn.disabled = false;
