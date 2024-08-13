@@ -13,21 +13,9 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  // // Fetch all products
-  // getAllProducts(): void {
-  //   this.http.get<any>(this.apiUrl)
-  //     .pipe(map(response => response.products))
-  //     .subscribe(products => this.productsSubject.next(products));
-  // }
-  // Fetch all products
-  getAllProducts(limit: number, skip: number): Observable<any>  {
-    return this.http.get<any>(`${this.apiUrl}?limit=${limit}&skip=${skip}`);
-  }
-
-  // Fetch all products
+  // Fetch products
   getProducts(category: string, searchText: string, limit: number, skip: number): Observable<any>  {
     if (searchText != "") {
-      console.log("case1");
       return this.http.get<any>(`${this.apiUrl}/search?q=${searchText}`);
     }
     else {

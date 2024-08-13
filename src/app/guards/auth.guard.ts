@@ -12,7 +12,6 @@ export const authGuard: CanActivateFn = (
 ):Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree => {
   const router:Router = inject(Router);
   const auth:AuthService = inject(AuthService);
-  console.log("this is user ", auth.userData.getValue());
   
   if (auth.userData.getValue() != null) {
     return true;

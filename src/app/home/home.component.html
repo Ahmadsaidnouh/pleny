@@ -1,6 +1,6 @@
 <section class="main-padding mt-5 pt-3 pb-4">
     <h1 class="mb-4">{{selectedCategoryName == "" ? "All" : selectedCategoryName}}</h1>
-    <p class="mb-5">Home / Products / <span>{{selectedCategoryName == "" ? "All" : selectedCategoryName}}</span></p>
+    <p class="mb-5">Home / Products / <span class="text-bold">{{selectedCategoryName == "" ? "All" : selectedCategoryName}}</span></p>
     <div class="d-flex gap-3">
         <div>
             <div *ngIf="categories.length" class="categories-container">
@@ -22,18 +22,19 @@
                     <div class="product-discount-badge">-{{ product.discountPercentage }}%</div>
                     <img [src]="product.thumbnail" alt="{{ product.title }}" class="product-image">
                     <div class="price-details remaining-height d-flex flex-column justify-content-between">
-                        <h3>{{ product.title }}</h3>
-                        <p>{{ product.description }}</p>
+                        <h3 class="mb-2">{{ product.title }}</h3>
+                        <p class="mb-2">{{ product.description }}</p>
                         <div class="product-price">
-                            <span class="original-price">{{ product.originalPrice }} USD</span>
-                            <span class="discounted-price">{{ product.price }} USD</span>
+                            <span class="original-price">{{ product.price }} USD</span>
+                            <span class="discounted-price">{{ calcPrice(product.price, product.discountPercentage) }} USD</span>
                         </div>
-                        <p>Brand: {{ product.brand }}</p>
-                        <p>Category: {{ product.category }}</p>
-                        <p>In stock: {{ product.stock }}</p>
-                        <div class="product-rating">
-                            <span>{{ product.rating }}</span>
-                            <span>({{ product.reviews }} reviews)</span>
+                        <p class="mb-2">Brand: <span class="text-bold">{{ product.brand }}</span></p>
+                        <p class="mb-2">Category: <span class="text-bold">{{ product.category }}</span></p>
+                        <p class="mb-2">In stock: <span class="text-bold">{{ product.stock }}</span></p>
+                        <div class="mb-2 product-rating d-flex align-items-center gap-1">
+                            <span><img src="assets/home/Star.svg" alt=""></span>
+                            <span class="rating">{{ product.rating }}</span>
+                            <span class="reviews-count">({{ product.reviews.length }})</span>
                         </div>
                         <ng-container *ngIf="isInCart(product.id); else addToCartTemplate">
                             <button class="cart-button remove-from-cart-button" (click)="toggleCart(product.id)">

@@ -9,7 +9,6 @@
             <input type="text" id="username" formControlName="username" placeholder="Enter your user name">
             <div class="error-message" *ngIf="username?.invalid && username?.touched">
               <small *ngIf="username?.errors?.['required']">User name is required.</small>
-              <!-- <small *ngIf="email?.errors?.['email']">Enter a valid email.</small> -->
             </div>
           </div>
       

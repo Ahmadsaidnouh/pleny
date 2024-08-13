@@ -13,12 +13,10 @@ input[type="radio"] {
     height: 15px;
     border-radius: 50%;
     border: 2px solid #00cfcf;
-    /* Border color */
     outline: none;
     cursor: pointer;
     position: relative;
     background-color: white;
-    /* Background color */
 }
 
 /* Create the inner dot */
@@ -28,7 +26,6 @@ input[type="radio"]::before {
     height: 5px;
     border-radius: 50%;
     background: #00cfcf;
-    /* Dot color */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -55,8 +52,6 @@ input[type="radio"]:hover {
 .product-card {
     width: 30%;
     border: 1px solid #ddd;
-    /* margin-bottom: 20px; */
-    /* text-align: center; */
     border-radius: 5px;
     overflow: hidden;
     position: relative;
@@ -78,26 +73,24 @@ input[type="radio"]:hover {
 
 .product-image {
     width: 100%;
-    /* height: auto; */
-    /* margin-bottom: 10px; */
     border-radius: 5px;
 }
 
 .product-price {
     display: flex;
-    justify-content: space-between;
+    gap: 18px;
     margin: 10px 0;
 }
 
 
 .original-price {
     text-decoration: line-through;
-    color: gray;
+    color: #344054;
 }
 
 .discounted-price {
     font-weight: bold;
-    color: #00cfcf;
+    color: #344054;
 }
 
 .cart-button {
@@ -109,17 +102,21 @@ input[type="radio"]:hover {
     width: 100%;
     transition: all .2s;
 }
+
 .add-to-cart-button {
     background-color: #00cfcf;
     transition: all .2s;
 }
+
 .add-to-cart-button:hover {
     background-color: #00b3b3;
 }
+
 .remove-from-cart-button {
     background-color: #ce0d0d;
     transition: all .2s;
 }
+
 .remove-from-cart-button:hover {
     background-color: #a00707;
 }
@@ -136,7 +133,6 @@ input[type="radio"]:hover {
     border: 1px solid #ddd;
     border-radius: 12px;
     color: #000000;
-    /* padding: 8px 12px; */
     text-align: center;
     vertical-align: center;
     margin: 0 4px;
@@ -158,4 +154,18 @@ input[type="radio"]:hover {
     background-color: #f5f5f5;
     color: #d3d3d3;
     cursor: not-allowed;
+}
+
+.product-rating {
+    text-align: end;
+    justify-content: end;
+}
+
+.rating {
+    color: #F4B000;
+    font-weight: bold;
+}
+
+.reviews-count {
+    color: #878787;
 }

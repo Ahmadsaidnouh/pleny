@@ -15,9 +15,6 @@ export class AuthService {
     if(localStorage.getItem("userData") != null) {
       this.saveUserData()
     }
-    else {
-      console.log("no signed in user");
-    }
   }
 
 
@@ -37,11 +34,8 @@ export class AuthService {
   }
 
   logOut() {
-    // let currentComponentName = this._Router.url.replace("/","")
-    // console.log("link = " + currentComponentName);
     localStorage.removeItem("userData")
     this.userData.next(null);
     this._Router.navigate(["login"]);
-    // if (currentComponentName == "settings" ....)
   }
 }

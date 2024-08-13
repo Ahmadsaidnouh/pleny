@@ -31,7 +31,6 @@ export class LoginComponent {
 
       const { username, password } = this.loginForm.value;
       this.authService.login(username, password).subscribe(response => {
-        console.log('Login successful', response);
         // Handle successful login, e.g., redirect or store token
         this.loginForm.reset();
 
@@ -42,9 +41,8 @@ export class LoginComponent {
         loginBtn.innerHTML = "Sign in";
         loginBtn.disabled = false;
       }, error => {
-        console.log('Login failed', error);
-        this.wrongLogin = true;
         // Handle login failure
+        this.wrongLogin = true;
         loginBtn.innerHTML = "Sign in";
         loginBtn.disabled = false;
       });

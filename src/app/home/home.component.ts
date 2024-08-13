@@ -28,14 +28,8 @@ export class HomeComponent {
     this.fetchProducts();
 
     this.searchService.searchText$.subscribe((text) => {
-      console.log("Search text:", text, " from home");
       if (text != "") {
-        // this.selectedCategory = "";
-  
-        // want to reset the rad btns by choosing All, but doesn't send a request because this.selectedCategory = "" resets but sends a request
-  
         this.searchText = text;
-        console.log("Search text:", text);
         this.fetchProducts();
       }
       else {
@@ -45,11 +39,14 @@ export class HomeComponent {
     });
   }
 
+  calcPrice(price: number, discount:number) {    
+    return (price * (100 - discount)/100).toFixed(2)
+  }
+
   fetchCategories(): void {
     this.productService.getAllCategories().subscribe((response) => {
       this.categories = [{ name: "All", slug: "" }];
       this.categories.push(...response);
-      console.log("Categories: ", this.categories);
     });
   }
 
@@ -57,20 +54,14 @@ export class HomeComponent {
     this.currentPage = page;
     const skip = (this.currentPage - 1) * this.limit;
 
-    console.log("Cat = ", this.selectedCategory, " page = ", page, " skip = ", skip, " limit = ", this.limit);
-
     this.productService.getProducts(this.selectedCategory, this.searchText, this.limit, skip).subscribe((response) => {
       this.productsToDisplay = response.products;
       this.data = response;
       this.total = response.total;
-      console.log("Products: ", this.productsToDisplay);
     });
   }
 
   onCategoryChange(category: string, categoryName: string): void {
-    // this.searchService.setSearchText(""); // reset search input
-
-    // Reset the search input and avoid emitting search value to prevent an unnecessary request
     this.searchText = '';
     this.searchService.setSearchText('');
     this.searchService.resetTextSubject.next(!this.searchService.resetTextSubject.getValue());
@@ -86,7 +77,6 @@ export class HomeComponent {
     }
   }
 
-  // Calculate total number of pages
   get totalPages(): number {
     return Math.ceil(this.total / this.limit);
   }
