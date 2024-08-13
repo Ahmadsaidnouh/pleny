@@ -66,8 +66,9 @@ input[type="radio"]:hover {
     top: 15px;
     left: 15px;
     background-color: #00cfcf;
-    color: white;
-    padding: 5px;
+    color: #344054;
+    font-weight: 700;
+    padding: 5px 10px;
     border-radius: 5px;
 }
 
@@ -94,7 +95,8 @@ input[type="radio"]:hover {
 }
 
 .cart-button {
-    color: white;
+    font-weight: 700;
+    font-size: 16px;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -104,6 +106,7 @@ input[type="radio"]:hover {
 }
 
 .add-to-cart-button {
+    color: #344054;
     background-color: #00cfcf;
     transition: all .2s;
 }
@@ -113,6 +116,7 @@ input[type="radio"]:hover {
 }
 
 .remove-from-cart-button {
+    color: #fff;
     background-color: #ce0d0d;
     transition: all .2s;
 }
