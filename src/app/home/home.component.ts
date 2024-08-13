@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -16,19 +17,12 @@ export class HomeComponent {
   limit: number = 9; // Items per page
   currentPage: number = 1;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     // Fetch categories on initialization
     this.fetchCategories();
     this.fetchProducts();
-
-
-    // this.productService.getProducts().subscribe((response) => {
-    //   this.productsToDisplay = response.products
-    //   this.data = response
-    //   console.log("productsToDisplay = ", this.productsToDisplay);
-    // });
   }
 
   fetchCategories(): void {
@@ -56,32 +50,12 @@ export class HomeComponent {
   onCategoryChange(category: string): void {
     this.selectedCategory = category;
     this.fetchProducts();
-    // console.log("Category = ", this.selectedCategory);
-
-    // if (this.selectedCategory != "") {
-    //   this.productService.getProductsByCategory(category).subscribe((response) => {
-    //     this.productsToDisplay = response.products
-    //     this.data = response
-    //     console.log("productsToDisplay = ", this.productsToDisplay);
-    //   });
-    // }
-    // else {
-    //   this.productService.getAllProducts().subscribe((response) => {
-    //     this.productsToDisplay = response.products
-    //     this.data = response
-    //     console.log("productsToDisplay = ", this.productsToDisplay);
-    //   });
-    // }
   }
 
   changePage(page: number): void {
     if (page !== this.currentPage) {
       this.fetchProducts(page);
     }
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: 'smooth'
-    // });
   }
 
   // Calculate total number of pages
@@ -92,5 +66,19 @@ export class HomeComponent {
   // Create an array of page numbers for the pagination
   get pagesArray(): number[] {
     return Array(this.totalPages).fill(0).map((_, index) => index + 1);
+  }
+
+  // Add or remove product from cart
+  toggleCart(productId: number): void {
+    if (this.cartService.isInCart(productId)) {
+      this.cartService.removeFromCart(productId);
+    } else {
+      this.cartService.addToCart(productId);
+    }
+  }
+
+  // Check if the product is in the cart
+  isInCart(productId: number): boolean {
+    return this.cartService.isInCart(productId);
   }
 }

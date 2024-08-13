@@ -3,3 +3,19 @@
     padding-block: 15px;
     border-bottom: 2px solid rgb(194, 194, 194);
 }
+
+.cart-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #41CCCC;
+    border: 2px solid white;
+    color: #344054;
+    width: 28px;
+    height: 28px;
+    border-radius: 60px;
+    font-size: 12px;
+    position: absolute;
+    top: -17px;
+    right: -13px;
+}

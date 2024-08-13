@@ -6,7 +6,8 @@
                     <div *ngFor="let category of categories" class="d-flex flex-column gap-3 mb-1">
                         <label class="d-flex align-items-center gap-1">
                             <input type="radio" name="category" [value]="category.slug"
-                                (change)="onCategoryChange(category.slug)" [checked]="selectedCategory === category.slug" />
+                                (change)="onCategoryChange(category.slug)"
+                                [checked]="selectedCategory === category.slug" />
                             {{ category.name }}
                         </label>
                     </div>
@@ -32,28 +33,34 @@
                             <span>{{ product.rating }}</span>
                             <span>({{ product.reviews }} reviews)</span>
                         </div>
-                        <button class="add-to-cart-button">ADD TO CART</button>
+                        <ng-container *ngIf="isInCart(product.id); else addToCartTemplate">
+                            <button class="cart-button remove-from-cart-button" (click)="toggleCart(product.id)">
+                                REMOVE FROM CART
+                            </button>
+                        </ng-container>
+                        <ng-template #addToCartTemplate>
+                            <button class="cart-button add-to-cart-button" (click)="toggleCart(product.id)">
+                                ADD TO CART
+                            </button>
+                        </ng-template>
                     </div>
                 </div>
             </div>
 
             <div class="pagination-contollers d-flex justify-content-center align-items-center">
                 <button class="page-link" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
-                  <span><i class="fa-solid fa-chevron-left"></i></span>
+                    <span><i class="fa-solid fa-chevron-left"></i></span>
                 </button>
                 <ng-container *ngFor="let page of pagesArray">
-                  <button 
-                    class="page-link" 
-                    [ngClass]="{ 'active': currentPage === page }" 
-                    (click)="changePage(page)">
-                    {{ page }}
-                  </button>
+                    <button class="page-link" [ngClass]="{ 'active': currentPage === page }" (click)="changePage(page)">
+                        {{ page }}
+                    </button>
                 </ng-container>
                 <button class="page-link" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
-                  <span><i class="fa-solid fa-chevron-right"></i></span>
+                    <span><i class="fa-solid fa-chevron-right"></i></span>
                 </button>
-              </div>
-              
+            </div>
+
         </div>
     </div>
 </section>
