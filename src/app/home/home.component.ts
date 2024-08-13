@@ -10,6 +10,7 @@ import { CartService } from '../services/cart.service';
 export class HomeComponent {
   categories: any[] = [];
   selectedCategory: string = '';
+  selectedCategoryName: string = '';
 
   productsToDisplay: any[] = []
   data: any;
@@ -47,8 +48,9 @@ export class HomeComponent {
     });
   }
 
-  onCategoryChange(category: string): void {
+  onCategoryChange(category: string, categoryName: string): void {
     this.selectedCategory = category;
+    this.selectedCategoryName = categoryName;
     this.fetchProducts();
   }
 

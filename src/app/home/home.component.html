@@ -1,4 +1,6 @@
 <section class="main-padding mt-5 pt-3 pb-4">
+    <h1 class="mb-4">{{selectedCategoryName == "" ? "All" : selectedCategoryName}}</h1>
+    <p class="mb-5">Home / Products / <span>{{selectedCategoryName == "" ? "All" : selectedCategoryName}}</span></p>
     <div class="d-flex gap-3">
         <div>
             <div *ngIf="categories.length" class="categories-container">
@@ -6,7 +8,7 @@
                     <div *ngFor="let category of categories" class="d-flex flex-column gap-3 mb-1">
                         <label class="d-flex align-items-center gap-1">
                             <input type="radio" name="category" [value]="category.slug"
-                                (change)="onCategoryChange(category.slug)"
+                                (change)="onCategoryChange(category.slug, category.name)"
                                 [checked]="selectedCategory === category.slug" />
                             {{ category.name }}
                         </label>
