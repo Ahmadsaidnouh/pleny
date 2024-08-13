@@ -11,6 +11,11 @@
         </div>
         <span *ngIf="!isLoggedIn" class="cursor-pointer">Log in</span>
         <div *ngIf="isLoggedIn" class="d-flex align-items-center gap-4">
+            <span class="search-input d-flex align-items-center gap-2">
+                <i style="margin-bottom: 1px;" class="fa-solid fa-magnifying-glass"></i>
+                <input class="remaining-width" type="text" placeholder="Search" (keyup)="onSearchChange($event)">
+            </span>
+            
             <span style="margin-bottom: -7px; position: relative;" class="cursor-pointer">
                 <img src="assets/navbar/Cart.svg" alt="">
                 <span *ngIf="cartCount != 0" class="cart-count">{{cartCount}}</span>

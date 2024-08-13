@@ -19,3 +19,14 @@
     top: -17px;
     right: -13px;
 }
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #828282;
+    border-radius: 14px;
+    width: 270px;
+}
+.search-input input {
+    border: none;
+    font-size: 16px;
+}

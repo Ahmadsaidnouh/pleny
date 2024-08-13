@@ -25,12 +25,18 @@ export class ProductService {
   }
 
   // Fetch all products
-  getProducts(category: string, limit: number, skip: number): Observable<any>  {
-    let temp = ""
-    if (category != '') {
-      temp = `/category/${category}`
+  getProducts(category: string, searchText: string, limit: number, skip: number): Observable<any>  {
+    if (searchText != "") {
+      console.log("case1");
+      return this.http.get<any>(`${this.apiUrl}/search?q=${searchText}`);
     }
-    return this.http.get<any>(`${this.apiUrl + temp}?limit=${limit}&skip=${skip}`);
+    else {
+      let temp = ""
+      if (category != '') {
+        temp = `/category/${category}`
+      }
+      return this.http.get<any>(`${this.apiUrl + temp}?limit=${limit}&skip=${skip}`);
+    }
   }
 
   // Fetch a single product by ID
