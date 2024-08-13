@@ -47,7 +47,9 @@ body {
 .align-items-center {
   align-items: center;
 }
-
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .gap-1 {
   gap: 4px !important;
 }

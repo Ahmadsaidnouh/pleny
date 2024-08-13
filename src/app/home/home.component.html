@@ -1,23 +1,59 @@
 <section class="main-padding mt-5 pt-3 pb-4">
-<div class="d-flex">
-    <div class="categories-container">
-        <form>
-            <div *ngFor="let category of categories" class="d-flex flex-column gap-3 mb-1">
-              <label class="d-flex align-items-center gap-1">
-                <input 
-                  type="radio" 
-                  name="category" 
-                  [value]="category.slug" 
-                  (change)="onCategoryChange(category.slug)" 
-                  [checked]="selectedCategory === category.slug"
-                />
-                {{ category.name }}
-              </label>
+    <div class="d-flex gap-3">
+        <div>
+            <div *ngIf="categories.length" class="categories-container">
+                <form>
+                    <div *ngFor="let category of categories" class="d-flex flex-column gap-3 mb-1">
+                        <label class="d-flex align-items-center gap-1">
+                            <input type="radio" name="category" [value]="category.slug"
+                                (change)="onCategoryChange(category.slug)" [checked]="selectedCategory === category.slug" />
+                            {{ category.name }}
+                        </label>
+                    </div>
+                </form>
             </div>
-          </form>
-    </div>
-    <div class="products-container">
+        </div>
+        <div class="d-flex flex-column remaining-width">
+            <div class="products-container w-100 d-flex flex-wrap justify-content-center gap-4">
+                <div *ngFor="let product of productsToDisplay" class="product-card d-flex flex-column ">
+                    <div class="product-discount-badge">-{{ product.discountPercentage }}%</div>
+                    <img [src]="product.thumbnail" alt="{{ product.title }}" class="product-image">
+                    <div class="price-details remaining-height d-flex flex-column justify-content-between">
+                        <h3>{{ product.title }}</h3>
+                        <p>{{ product.description }}</p>
+                        <div class="product-price">
+                            <span class="original-price">{{ product.originalPrice }} USD</span>
+                            <span class="discounted-price">{{ product.price }} USD</span>
+                        </div>
+                        <p>Brand: {{ product.brand }}</p>
+                        <p>Category: {{ product.category }}</p>
+                        <p>In stock: {{ product.stock }}</p>
+                        <div class="product-rating">
+                            <span>{{ product.rating }}</span>
+                            <span>({{ product.reviews }} reviews)</span>
+                        </div>
+                        <button class="add-to-cart-button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
 
+            <div class="pagination-contollers d-flex justify-content-center align-items-center">
+                <button class="page-link" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+                  <span><i class="fa-solid fa-chevron-left"></i></span>
+                </button>
+                <ng-container *ngFor="let page of pagesArray">
+                  <button 
+                    class="page-link" 
+                    [ngClass]="{ 'active': currentPage === page }" 
+                    (click)="changePage(page)">
+                    {{ page }}
+                  </button>
+                </ng-container>
+                <button class="page-link" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
+                  <span><i class="fa-solid fa-chevron-right"></i></span>
+                </button>
+              </div>
+              
+        </div>
     </div>
-</div>
 </section>

@@ -20,8 +20,17 @@ export class ProductService {
   //     .subscribe(products => this.productsSubject.next(products));
   // }
   // Fetch all products
-  getAllProducts(): Observable<any>  {
-    return this.http.get<any>(this.apiUrl);
+  getAllProducts(limit: number, skip: number): Observable<any>  {
+    return this.http.get<any>(`${this.apiUrl}?limit=${limit}&skip=${skip}`);
+  }
+
+  // Fetch all products
+  getProducts(category: string, limit: number, skip: number): Observable<any>  {
+    let temp = ""
+    if (category != '') {
+      temp = `/category/${category}`
+    }
+    return this.http.get<any>(`${this.apiUrl + temp}?limit=${limit}&skip=${skip}`);
   }
 
   // Fetch a single product by ID
@@ -46,7 +55,7 @@ export class ProductService {
 
   // Fetch all product categories
   getAllCategories(): Observable<any[]> {
-    return this.http.get<any[]>('https://dummyjson.com/products/categories');
+    return this.http.get<any[]>(`https://dummyjson.com/products/categories`);
   }
 
   // Fetch product category list
@@ -55,7 +64,7 @@ export class ProductService {
   }
 
   // Fetch products by category
-  getProductsByCategory(category: string): Observable<any>  {
-    return this.http.get<any>(`https://dummyjson.com/products/category/${category}`);
+  getProductsByCategory(category: string, limit: number, skip: number): Observable<any>  {
+    return this.http.get<any>(`https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}`);
   }
 }

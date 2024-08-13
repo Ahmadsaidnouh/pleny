@@ -32,7 +32,8 @@ input[type="radio"]::before {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-59%, -49%) scale(0);;
+    transform: translate(-59%, -49%) scale(0);
+    ;
     transition: transform 0.2s ease;
 }
 
@@ -45,3 +46,106 @@ input[type="radio"]:checked::before {
 input[type="radio"]:hover {
     border-color: #00cfcf;
 }
+
+.categories-container {
+    width: 275px;
+}
+
+
+.product-card {
+    width: 30%;
+    border: 1px solid #ddd;
+    /* margin-bottom: 20px; */
+    /* text-align: center; */
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.price-details {
+    padding: 15px;
+}
+
+.product-discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #00cfcf;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.product-image {
+    width: 100%;
+    /* height: auto; */
+    /* margin-bottom: 10px; */
+    border-radius: 5px;
+}
+
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+
+.original-price {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.discounted-price {
+    font-weight: bold;
+    color: #00cfcf;
+}
+
+.add-to-cart-button {
+    background-color: #00cfcf;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.add-to-cart-button:hover {
+    background-color: #00b3b3;
+}
+
+/* pagination */
+
+.pagination-contollers {
+    margin-top: 20px;
+}
+
+.page-link {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    color: #000000;
+    /* padding: 8px 12px; */
+    text-align: center;
+    vertical-align: center;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.page-link.active {
+    background-color: #00cfcf;
+    color: #ffffff;
+    cursor: default;
+}
+
+.page-link:hover:not(.active) {
+    background-color: #e0e0e0;
+}
+
+.page-link:disabled {
+    background-color: #f5f5f5;
+    color: #d3d3d3;
+    cursor: not-allowed;
